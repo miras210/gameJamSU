@@ -5,6 +5,14 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
+
+    private Vector3 _direction;
+    
+    [SerializeField]
+    private float _speed = 5f;
+
+    [SerializeField]
+    private CharacterController _controller;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,10 +22,11 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        _controller.Move(_direction * (_speed * Time.deltaTime));
     }
 
-    void OnMove(InputValue value) {
-        Debug.Log(value.Get<Vector2>());
+    void OnMove(InputValue value)
+    {
+       _direction = new Vector3(value.Get<Vector2>().x, 0f, value.Get<Vector2>().y);
     }
 }
