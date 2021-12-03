@@ -1,13 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
     // Start is called before the first frame update
-    [SerializeField]
-    private CharacterController _controller;
-
     void Start()
     {
         
@@ -17,5 +15,9 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         
+    }
+
+    void OnMove(InputValue value) {
+        Debug.Log(value.Get<Vector2>());
     }
 }
