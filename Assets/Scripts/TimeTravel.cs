@@ -19,6 +19,8 @@ public class TimeTravel : MonoBehaviour
     private bool isRewinding = false;
 
     public float cooldownTime = 8f;
+
+    public float travelTime = 2f;
     
     public int frameSkip = 0;
 
@@ -27,6 +29,7 @@ public class TimeTravel : MonoBehaviour
     void Start()
     {
         positions = new List<Vector3>();
+        _tracePrefab = Instantiate(_tracePrefab, transform.position, transform.rotation);
     }
 
     // Update is called once per frame
@@ -78,7 +81,7 @@ public class TimeTravel : MonoBehaviour
 
     void Record()
     {
-        if (positions.Count > Mathf.Round(2f / Time.fixedDeltaTime))
+        if (positions.Count > Mathf.Round(travelTime / Time.fixedDeltaTime))
         {
             SpawnTrace(positions[0]);
             positions.RemoveAt(0);
