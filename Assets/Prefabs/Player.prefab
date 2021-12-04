@@ -146,6 +146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Movable: 1
+  _direction: {x: 0, y: 0, z: 0}
   _speed: 5
   _controller: {fileID: 6846246287796717683}
 --- !u!114 &-9035889018898406768
@@ -162,4 +163,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _controller: {fileID: 6846246287796717683}
   _movement: {fileID: 6846246287796717684}
-  cooldownTime: 0
+  _tracePrefab: {fileID: 0}
+  _traceLine: {fileID: 0}
+  cooldownTime: 5
