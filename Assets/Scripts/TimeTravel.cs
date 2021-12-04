@@ -11,6 +11,9 @@ public class TimeTravel : MonoBehaviour
 
     [SerializeField] private PlayerMovement _movement;
 
+    [SerializeField] private GameObject _tracePrefab;
+    [SerializeField] private LineRenderer _traceLine;
+
     private List<Vector3> positions;
     
     private bool isRewinding = false;
@@ -38,6 +41,20 @@ public class TimeTravel : MonoBehaviour
         {
             Record();
         }
+        SpawnTraceLine();
+    }
+
+    private void SpawnTraceLine()
+    {
+        _traceLine.positionCount = positions.Count;
+        _traceLine.SetPositions(positions.ToArray());
+    }
+
+    void SpawnTrace(Vector3 tracePosition)
+    {
+        _tracePrefab.transform.position = tracePosition;
+        
+        // Instantiate(_tracePrefab, tracePosition, transform.rotation);
     }
 
     void Rewind()
@@ -58,6 +75,7 @@ public class TimeTravel : MonoBehaviour
     {
         if (positions.Count > Mathf.Round(2f / Time.fixedDeltaTime))
         {
+            SpawnTrace(positions[0]);
             positions.RemoveAt(0);
         }
         positions.Add(transform.position);
@@ -78,6 +96,7 @@ public class TimeTravel : MonoBehaviour
     public void StartRewind()
     {
         _movement.Movable = false;
+        _movement._direction = Vector3.zero;
         isRewinding = true;
     }
 
