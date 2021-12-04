@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public bool Movable = true;
     
-    private Vector3 _direction;
+    public Vector3 _direction;
     
     [SerializeField]
     private float _speed = 5f;
