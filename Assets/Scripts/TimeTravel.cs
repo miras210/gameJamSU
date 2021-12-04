@@ -66,7 +66,6 @@ public class TimeTravel : MonoBehaviour
         }
         else
         {
-            nextRewindTime = Time.time + cooldownTime;
             StopRewind();
         }
     }
@@ -95,6 +94,7 @@ public class TimeTravel : MonoBehaviour
 
     public void StartRewind()
     {
+        nextRewindTime = Time.time + cooldownTime;
         _movement.Movable = false;
         _movement._direction = Vector3.zero;
         isRewinding = true;
