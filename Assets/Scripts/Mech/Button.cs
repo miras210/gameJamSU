@@ -8,12 +8,16 @@ public class Button : MonoBehaviour, Mechanism
     public LayerMask targetLayer;
 
     public float reachRadius;
-
+    public bool timed = false;
+    public float timer;
     public bool activated = false;
+    public bool interactable = true;
+
+    private Renderer _renderer;
     // Start is called before the first frame update
     void Start()
     {
-        
+        _renderer = GetComponent<Renderer>();
     }
 
     // Update is called once per frame
@@ -24,12 +28,33 @@ public class Button : MonoBehaviour, Mechanism
 
     public void Activate()
     {
-        activated = true;
+        if (!activated)
+        {
+            activated = true;
+            Debug.Log("Activated");
+            _renderer.material.color = Color.green;
+            if (timed)
+            {
+                StartCoroutine(ActivatedRoutine());
+            }
+        }
+    }
+
+    IEnumerator ActivatedRoutine()
+    {
+        interactable = false;
+        yield return new WaitForSeconds(timer);
+        DeActivate();
+        interactable = true;
     }
 
     public void DeActivate()
     {
-        activated = false;
+        if (activated)
+        {
+            activated = false;
+            _renderer.material.color = Color.red;
+        }
     }
 
     public bool IsActivated()
@@ -39,7 +64,7 @@ public class Button : MonoBehaviour, Mechanism
 
     public bool IsInteractable()
     {
-        return true;
+        return interactable;
     }
 
     private void OnDrawGizmosSelected()
