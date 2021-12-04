@@ -20,11 +20,16 @@ public class TimeTravel : MonoBehaviour
 
     public float cooldownTime = 8f;
 
+    public float travelTime = 2f;
+    
+    public int frameSkip = 0;
+
     private float nextRewindTime;
     // Start is called before the first frame update
     void Start()
     {
         positions = new List<Vector3>();
+        _tracePrefab = Instantiate(_tracePrefab, transform.position, transform.rotation);
     }
 
     // Update is called once per frame
@@ -63,17 +68,20 @@ public class TimeTravel : MonoBehaviour
         {
             transform.position = positions[positions.Count - 1];
             positions.RemoveAt(positions.Count-1);
+            for (int i = 0; i < frameSkip && positions.Count > 1; i++)
+            {
+                positions.RemoveAt(positions.Count-1);
+            }
         }
         else
         {
-            nextRewindTime = Time.time + cooldownTime;
             StopRewind();
         }
     }
 
     void Record()
     {
-        if (positions.Count > Mathf.Round(2f / Time.fixedDeltaTime))
+        if (positions.Count > Mathf.Round(travelTime / Time.fixedDeltaTime))
         {
             SpawnTrace(positions[0]);
             positions.RemoveAt(0);
@@ -95,6 +103,7 @@ public class TimeTravel : MonoBehaviour
 
     public void StartRewind()
     {
+        nextRewindTime = Time.time + cooldownTime;
         _movement.Movable = false;
         _movement._direction = Vector3.zero;
         isRewinding = true;
