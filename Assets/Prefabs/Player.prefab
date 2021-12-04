@@ -145,6 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0d5896a8004448428b8dbc69d574c9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Movable: 1
   _speed: 5
   _controller: {fileID: 6846246287796717683}
 --- !u!114 &-9035889018898406768
@@ -159,3 +160,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e5d61ce04de87e43a78ebb290fb11cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _controller: {fileID: 6846246287796717683}
+  _movement: {fileID: 6846246287796717684}
+  cooldownTime: 0

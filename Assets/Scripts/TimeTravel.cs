@@ -9,9 +9,15 @@ public class TimeTravel : MonoBehaviour
     [SerializeField]
     private CharacterController _controller;
 
+    [SerializeField] private PlayerMovement _movement;
+
     private List<Vector3> positions;
     
-    public bool isRewinding = false;
+    private bool isRewinding = false;
+
+    public float cooldownTime = 8f;
+
+    private float nextRewindTime;
     // Start is called before the first frame update
     void Start()
     {
@@ -43,6 +49,7 @@ public class TimeTravel : MonoBehaviour
         }
         else
         {
+            nextRewindTime = Time.time + cooldownTime;
             StopRewind();
         }
     }
@@ -58,16 +65,25 @@ public class TimeTravel : MonoBehaviour
 
     void OnRewind(InputValue value)
     {
-        StartRewind();
+        if (Time.time < nextRewindTime)
+        {
+            StopRewind();
+        }
+        else
+        {
+            StartRewind();
+        }
     }
 
     public void StartRewind()
     {
+        _movement.Movable = false;
         isRewinding = true;
     }
 
     public void StopRewind()
     {
+        _movement.Movable = true;
         isRewinding = false;
     }
 }
