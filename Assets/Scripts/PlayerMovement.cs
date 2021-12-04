@@ -5,7 +5,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-
+    public bool Movable = true;
+    
     private Vector3 _direction;
     
     [SerializeField]
@@ -27,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
 
     void OnMove(InputValue value)
     {
-       _direction = new Vector3(value.Get<Vector2>().x, 0f, value.Get<Vector2>().y);
+        if (Movable)
+            _direction = new Vector3(value.Get<Vector2>().x, 0f, value.Get<Vector2>().y);
     }
 }
