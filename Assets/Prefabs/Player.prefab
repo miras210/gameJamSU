@@ -283,7 +283,7 @@ MonoBehaviour:
   _controller: {fileID: 6846246287796717683}
   _movement: {fileID: 6846246287796717684}
   _tracePrefab: {fileID: 66484891209055064, guid: 5d3838887aacc304e939e69c316ef489, type: 3}
-  _traceLine: {fileID: 0}
+  _traceLine: {fileID: 1351040674562648103, guid: 8f4a52dda455ab54caff777512c99ddb, type: 3}
   cooldownTime: 5
   travelTime: 2
   frameSkip: 3
