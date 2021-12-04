@@ -28,7 +28,14 @@ public class Interactor : MonoBehaviour
             Mechanism m = mech.GetComponent<Mechanism>();
             if (m != null && m.IsInteractable())
             {
-                m.Activate();
+                if (!m.IsActivated())
+                {
+                    m.Activate();
+                }
+                else
+                {
+                    m.DeActivate();
+                }
             }
         }
     }

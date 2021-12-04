@@ -181,7 +181,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 127
+    m_Bits: 383
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -200,7 +200,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 44151252}
-  m_LocalRotation: {x: 0.28317955, y: -0.0000000018513696, z: -5.4674254e-10, w: 0.9590669}
+  m_LocalRotation: {x: 0.28317952, y: 0.00000002858578, z: -0.000000008439354, w: 0.9590669}
   m_LocalPosition: {x: 1.2440853, y: 9.25, z: -11.983565}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1064,7 +1064,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: -9035889018898406768, guid: 089a0ab0600dd2e4c88ad7ffe0f03fe4, type: 3}
   m_PrefabInstance: {fileID: 567437168}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1564785866}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2e5d61ce04de87e43a78ebb290fb11cb, type: 3}
@@ -1289,7 +1289,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1270177247}
   - component: {fileID: 1270177246}
-  - component: {fileID: 1270177245}
   m_Layer: 0
   m_Name: Minimap Camera
   m_TagString: Untagged
@@ -1297,14 +1296,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &1270177245
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1270177244}
-  m_Enabled: 1
 --- !u!20 &1270177246
 Camera:
   m_ObjectHideFlags: 0
@@ -1376,13 +1367,14 @@ GameObject:
   - component: {fileID: 1316690178}
   - component: {fileID: 1316690177}
   - component: {fileID: 1316690182}
+  - component: {fileID: 1316690183}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1316690177
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1511,6 +1503,22 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &1316690183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1316690176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bafdd1a45ad7f0b4085c52584c844a27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionRadius: 0
+  mechLayer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!120 &1330161369 stripped
 LineRenderer:
   m_CorrespondingSourceObject: {fileID: 1351040674562648103, guid: 8f4a52dda455ab54caff777512c99ddb, type: 3}
@@ -1674,35 +1682,35 @@ PrefabInstance:
       objectReference: {fileID: 746808122}
     - target: {fileID: 2708585596152786614, guid: d385f474da93f234d8b9c76e87851478, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.28317952
+      value: 0.2831795
       objectReference: {fileID: 0}
     - target: {fileID: 2708585596152786614, guid: d385f474da93f234d8b9c76e87851478, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 1.4542347e-16
+      value: 0.000000028582425
       objectReference: {fileID: 0}
     - target: {fileID: 2708585596152786614, guid: d385f474da93f234d8b9c76e87851478, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -7.703012e-16
+      value: -0.000000008439407
       objectReference: {fileID: 0}
     - target: {fileID: 2708585596201648011, guid: d385f474da93f234d8b9c76e87851478, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.95375735
+      value: 0.9537574
       objectReference: {fileID: 0}
     - target: {fileID: 2708585596201648011, guid: d385f474da93f234d8b9c76e87851478, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.00000001641071
+      value: 0.000000016410718
       objectReference: {fileID: 0}
     - target: {fileID: 2708585596201648011, guid: d385f474da93f234d8b9c76e87851478, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.000000005171852
+      value: -0.000000005171854
       objectReference: {fileID: 0}
     - target: {fileID: 2708585597250415426, guid: d385f474da93f234d8b9c76e87851478, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000016587746
+      value: -0.000000016587752
       objectReference: {fileID: 0}
     - target: {fileID: 2708585597250415426, guid: d385f474da93f234d8b9c76e87851478, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.000000004572321
+      value: 0.0000000045723225
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d385f474da93f234d8b9c76e87851478, type: 3}
@@ -1781,6 +1789,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1412451762}
   m_CullTransparentMesh: 1
+--- !u!1 &1564785866 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6846246287796717682, guid: 089a0ab0600dd2e4c88ad7ffe0f03fe4, type: 3}
+  m_PrefabInstance: {fileID: 567437168}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1564785872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1564785866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bafdd1a45ad7f0b4085c52584c844a27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionRadius: 2
+  mechLayer:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &1651205499
 GameObject:
   m_ObjectHideFlags: 0
