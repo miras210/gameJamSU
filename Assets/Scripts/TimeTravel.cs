@@ -19,6 +19,8 @@ public class TimeTravel : MonoBehaviour
     private bool isRewinding = false;
 
     public float cooldownTime = 8f;
+    
+    public int frameSkip = 0;
 
     private float nextRewindTime;
     // Start is called before the first frame update
@@ -63,6 +65,10 @@ public class TimeTravel : MonoBehaviour
         {
             transform.position = positions[positions.Count - 1];
             positions.RemoveAt(positions.Count-1);
+            for (int i = 0; i < frameSkip && positions.Count > 1; i++)
+            {
+                positions.RemoveAt(positions.Count-1);
+            }
         }
         else
         {
