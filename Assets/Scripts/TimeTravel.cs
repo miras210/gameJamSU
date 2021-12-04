@@ -30,6 +30,7 @@ public class TimeTravel : MonoBehaviour
     {
         positions = new List<Vector3>();
         _tracePrefab = Instantiate(_tracePrefab, transform.position, transform.rotation);
+        _traceLine = Instantiate(_traceLine, new Vector3(), new Quaternion());
     }
 
     // Update is called once per frame
@@ -59,7 +60,7 @@ public class TimeTravel : MonoBehaviour
     {
         _tracePrefab.transform.position = tracePosition;
         
-        // Instantiate(_tracePrefab, tracePosition, transform.rotation);
+        
     }
 
     void Rewind()
