@@ -6,7 +6,6 @@ using UnityEngine;
 public class Interactor : MonoBehaviour
 {
     public float interactionRadius;
-
     [SerializeField]
     private LayerMask mechLayer;
     // Start is called before the first frame update
@@ -29,7 +28,14 @@ public class Interactor : MonoBehaviour
             Mechanism m = mech.GetComponent<Mechanism>();
             if (m != null && m.IsInteractable())
             {
-                Debug.Log("Oh yes");
+                if (!m.IsActivated())
+                {
+                    m.Activate();
+                }
+                else
+                {
+                    m.DeActivate();
+                }
             }
         }
     }

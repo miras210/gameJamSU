@@ -3,47 +3,43 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Button : MonoBehaviour, Mechanism
+public class Button : BaseMech
 {
-    public LayerMask targetLayer;
+    public Material activeMaterial;
+    public Material deactiveMaterial;
+    public Renderer buttonRenderer;
 
-    public float reachRadius;
-
-    public bool activated = false;
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
+        if (buttonRenderer == null)
+        {
+            buttonRenderer = GetComponent<Renderer>();
+        }
+
+        ChangeMaterial(IsActivated());
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void Activate()
     {
-        
+        base.Activate();
+        ChangeMaterial(IsActivated());
     }
 
-    public void Activate()
+    private void ChangeMaterial(bool isActive)
     {
-        activated = true;
+        if (isActive)
+        {
+            buttonRenderer.material = activeMaterial;
+        }
+        else
+        {
+            buttonRenderer.material = deactiveMaterial;
+        }
     }
 
-    public void DeActivate()
+    public override void DeActivate()
     {
-        activated = false;
-    }
-
-    public bool IsActivated()
-    {
-        return activated;
-    }
-
-    public bool IsInteractable()
-    {
-        return true;
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.DrawWireSphere(transform.position, reachRadius);
+        base.DeActivate();
+        ChangeMaterial(IsActivated());
     }
 }

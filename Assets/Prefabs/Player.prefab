@@ -127,6 +127,7 @@ GameObject:
   - component: {fileID: 6846246287796717687}
   - component: {fileID: 6846246287796717684}
   - component: {fileID: -9035889018898406768}
+  - component: {fileID: 1564785872}
   m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
@@ -343,3 +344,19 @@ MonoBehaviour:
   cooldownTime: 5
   travelTime: 2
   frameSkip: 3
+--- !u!114 &1564785872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6846246287796717682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bafdd1a45ad7f0b4085c52584c844a27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionRadius: 2
+  mechLayer:
+    serializedVersion: 2
+    m_Bits: 256
